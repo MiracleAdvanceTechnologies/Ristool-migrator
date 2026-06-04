@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Configurations>
-  <Configuration ID="1" ORG_ID="1" ORG_NAME="" ORG_ADDR="" ORG_TEL="" ORG_EMAIL="" USER_ID="" USER_PWD="" PORT="COM4" BAUD_RATE="4500" DATA_BIT="8" PARITY="None" STOP_BIT="One" STATUS="" LAST_MESSAGE="" REFRESH_TIME="" NET_HOST="" NET_PORT="" NET_TYPE="" ACTION="" CREATED_ON="" >
-  </Configuration>
-</Configurations>

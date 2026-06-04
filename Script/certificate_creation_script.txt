@@ -1,1 +1,0 @@
-New-SelfSignedCertificate -Subject "CN=envisionnext.net" -FriendlyName "envisionnext.net" -DnsName "envisionnext.net" -NotAfter (Get-Date).AddMonths(10000) -CertStoreLocation cert:\LocalMachine\My

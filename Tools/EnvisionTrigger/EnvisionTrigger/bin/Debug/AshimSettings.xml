@@ -1,1 +1,0 @@
-<?xml version="1.0"?><!--First Comment XmlTextWriter Sample Example--><!--myXmlFile.xml in root dir--><Student><r:RECORD xmlns:r="urn:record"><Name>Student PQR</Name><Address>Colony STU</Address><Char XYZ>arc</Char XYZ></r:RECORD></Student>

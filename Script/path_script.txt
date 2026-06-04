@@ -1,9 +1,0 @@
-update "PMR_ORDER_CAPTURED_FILE" as ff  set "FILE_PATH"= i."R_Path" from 
-(select c."PMR_ORDER_FILE_ID", 
-CONCAT(c."ORG_ID"::VARCHAR,'\',TO_CHAR("CREADTED_ON", 'ddmmyyyy'),'\',p."HN",'\',c."ACCESSION_NO") 
-as "R_Path" ,p."PATIENT_ID" ,p."HN"  from
-"PMR_ORDER_CAPTURED_FILE" c 
-join "PMR_ORDER" o on c."ORDER_ID" =o."ORDER_ID" 
-join "PMS_PATIENT" p on o."PATIENT_ID"=p."PATIENT_ID"
-where c."ORG_ID" =15)i where ff."PMR_ORDER_FILE_ID"=i."PMR_ORDER_FILE_ID"
-
