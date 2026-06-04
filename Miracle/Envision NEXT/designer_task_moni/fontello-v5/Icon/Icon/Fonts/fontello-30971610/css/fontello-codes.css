@@ -1,0 +1,14 @@
+
+.icon-pi-all:before { content: '\e800'; } /* '' */
+.icon-pi-doc_team:before { content: '\e801'; } /* '' */
+.icon-pi-fuji:before { content: '\e802'; } /* '' */
+.icon-pi-nurse:before { content: '\e803'; } /* '' */
+.icon-pi-preparation:before { content: '\e804'; } /* '' */
+.icon-pi-recovery:before { content: '\e805'; } /* '' */
+.icon-pi-reporting:before { content: '\e806'; } /* '' */
+.icon-pi-reporting-plus:before { content: '\e807'; } /* '' */
+.icon-pi-role:before { content: '\e808'; } /* '' */
+.icon-pi-sanitizer:before { content: '\e809'; } /* '' */
+.icon-pi-scope:before { content: '\e80a'; } /* '' */
+.icon-post-scope:before { content: '\e80b'; } /* '' */
+.icon-support:before { content: '\e80c'; } /* '' */

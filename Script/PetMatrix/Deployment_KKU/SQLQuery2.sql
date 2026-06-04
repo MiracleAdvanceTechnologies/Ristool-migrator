@@ -1,0 +1,12 @@
+SELECT * FROM  [KKU-MasterData]..['Chargable Items_DF$']
+SELECT DISTINCT [DRUG ROUTE] FROM [KKU-MasterData]..['Chargable Items_DRUG$']
+
+SELECT * FROM [KKU-MasterData]..['Chargable Items_VACCINE$']
+SELECT * FROM [KKU-MasterData]..['Chargable Items_STUDY$']
+SELECT * FROM [KKU-MasterData]..['Chargable Items_SERVE$']
+SELECT * FROM [KKU-MasterData]..['Chargable Items_Shop$']
+SELECT * FROM [KKU-MasterData]..['Chargable Items_RIS$']
+SELECT * FROM [KKU-MasterData]..['Chargable Items_PANEL$']
+SELECT * FROM [KKU-MasterData]..['Chargable Items_NONE$']
+SELECT * FROM [KKU-MasterData]..['Chargable Items_LIS$']
+SELECT * FROM [KKU-MasterData]..['Chargable Items_IPD$']

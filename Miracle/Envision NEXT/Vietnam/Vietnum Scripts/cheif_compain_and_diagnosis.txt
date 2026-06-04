@@ -1,0 +1,153 @@
+----------------------------------------------------------------------------------------------------------------------------------
+27-May-2022 Only for vietnam
+----------------------------------------------------------------------------------------------------------------------------------
+
+UPDATE "PMS_ORGAN" SET "DISPLAY_NAME"=local_display_name  FROM  table_name WHERE  "PMS_ORGAN"."ORGAN_ID" =table_name.organ_id
+
+
+
+--REGION
+UPDATE "PMS_RPT_REGION"  
+SET  "DISP_NAME"=local_disp_name, 
+     "SINGULAR"=CASE  WHEN "SINGULAR" like '%$%' THEN '$'
+      ELSE local_disp_name
+END      
+FROM  table_name WHERE  "PMS_RPT_REGION"."RPT_REGION_ID" =table_name.rpt_region_id
+
+
+-- Findings
+
+UPDATE "PMS_RPT_DIAGONOSIS"  
+
+SET  "DISP_NAME"=local_disp_name, 
+     "SINGULAR"=CASE  WHEN "SINGULAR" like '%$%' THEN '$'
+      ELSE local_disp_name
+END      
+FROM  table_name WHERE  "PMS_RPT_DIAGONOSIS"."RPT_DIAGONOSIS_ID" =table_name.rpt_diagonosis_id
+
+
+--Findings DTL
+
+UPDATE "PMS_RPT_FINDINGS"  
+
+SET  "DISP_NAME"=local_disp_name, 
+     "SINGULAR"=CASE  WHEN "SINGULAR" like '%$%' THEN '$'
+      ELSE local_disp_name
+END      
+FROM  table_name WHERE "PMS_RPT_FINDINGS"."RPT_FINDING_ID" =table_name.rpt_finding_id
+
+--- Intervention
+
+UPDATE "PMS_RPT_TREATMENT"
+
+SET  "DISP_NAME"=local_disp_name, 
+     "SINGULAR"=CASE  WHEN "SINGULAR" like '%$%' THEN '$'
+      ELSE local_disp_name
+END      
+FROM  table_name WHERE "PMS_RPT_TREATMENT"."RPT_TREATMENT_ID" =table_name.rpt_diagonosis_id
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+-------  SEDATION SCRIPT 10-Oct-2023  Start---
+CREATE temp TABLE "SEDIATION_TYPE" (
+  "NAME" text,
+  "LOCAL_NAME" text,
+  "DISPLAY_NAME" text,
+  "LOCAL_DISPLAY_NAME" text
+);
+
+INSERT INTO "SEDIATION_TYPE" VALUES
+('Conscious Sedation','An thần vừa phải','Conscious Sedation','An thần vừa phải'),
+('General Anesthesia','Gây mê toàn thân','General Anesthesia','Gây mê toàn thân'),
+('Sedative Agent','Chất an thần','Sedative Agent','Chất an thần'),
+('Select a Sedative Agent','Chọn một chất an thần','Select a Sedative Agent','Chọn một chất an thần'),
+('Midazolam','Thuốc Midazolam','Midazolam','Midazolam'),
+('Diazepam','Thuốc Diazepam','Diazepam','Diazepam'),
+('Pethidine','Thuốc Pethidine','Pethidine','Pethidine'),
+('Fentanyl','Thuốc Fentanyl','Fentanyl','Fentanyl'),
+('Propofol','Thuốc Propofol','Propofol','Propofol'),
+('Type of Sedation','Loại an thần','Type of Sedation','Loại an thần'),
+('Yes','Có','Yes','Có'),
+('No','Không','No','Không');
+
+
+update "PMS_SEDATION_TYPE" PT set  "DISPLAY_NAME"=ST."LOCAL_NAME"  from  "SEDIATION_TYPE" ST  WHERE PT."NAME" = ST. "NAME";
+update "PMS_SEDATIVE_AGENT"  PT set  "DISPLAY_NAME"=ST."LOCAL_NAME" from  "SEDIATION_TYPE" ST  WHERE PT."NAME" = ST. "NAME";
+
+-----------------------------------------  SEDATION SCRIPT 10-Oct-2023  End ------------------------------------------------
+
+
+
+
+---------------------- "PMS_CLINICAL_DIAGNOSIS" 10-Oct-2023 Start ----
+
+create TEMP TABLE "CLINICAL_DIAGNOSIS" (
+  "CLINICAL_DIAGNOSIS_ID" double precision,
+  "CLINICAL_DIAGNOSIS_NAME" text,
+  "LOCAL_CLINICAL_DIAGNOSIS_NAME" text,
+  "SHORT_NAME" text,
+  "LOCAL_SHORT_NAME" text,
+  "DISPLAY_NAME" text,
+  "LOCAL_DISPLAY_NAME" text
+);
+
+INSERT INTO "CLINICAL_DIAGNOSIS" VALUES
+(13,'Insomnia','Mất ngủ','Insomnia','Mất ngủ','Insomnia','Mất ngủ'),
+(14,'Mitral insufficiency','Hở van hai lá','Mitral insufficiency','Hở van hai lá','Mitral insufficiency','Hở van hai lá'),
+(15,'Gastric ulcer','Loét dạ dày','Gastric ulcer','Loét dạ dày','Gastric ulcer','Loét dạ dày'),
+(16,'Typhoid fever','Bệnh thương hàn','Typhoid fever','Bệnh thương hàn','Typhoid fever','Bệnh thương hàn'),
+(17,'God only knows diseases','Bệnh không xác định','God only knows diseases','Bệnh không xác định','God only knows diseases','Bệnh không xác định'),
+(18,'Small intestinal tumor','Khối u ruột non','Small intestinal tumor','Khối u ruột non','Small intestinal tumor','Khối u ruột non'),
+(19,'Achalasia','Co thắt tâm vị','Achalasia','Co thắt tâm vị','Achalasia','Co thắt tâm vị'),
+(20,'Anastomic leak','Rò rỉ miệng nối','Anastomic leak','Rò rỉ miệng nối','Anastomic leak','Rò rỉ miệng nối'),
+(21,'Angioectasia','Giãn mạch','Angioectasia','Giãn mạch','Angioectasia','Giãn mạch'),
+(22,'Atrophic gastritis','Viêm teo dạ dày','Atrophic gastritis','Viêm teo dạ dày','Atrophic gastritis','Viêm teo dạ dày'),
+(23,'Barretts esophagus','Barrett thực quản','Barretts esophagus','Barrett thực quản','Barretts esophagus','Barrett thực quản'),
+(24,'Caustic ingestion','Chất ăn mòn','Caustic ingestion','Chất ăn mòn','Caustic ingestion','Chất ăn mòn'),
+(25,'Celiac disease','Bệnh Celiac','Celiac disease','Bệnh Celiac','Celiac disease','Bệnh Celiac'),
+(26,'Diverticulum','Túi thừa','Diverticulum','Túi thừa','Diverticulum','Túi thừa'),
+(27,'Duodenal stricture','Tắc tá tràng','Duodenal stricture','Tắc tá tràng','Duodenal stricture','Tắc tá tràng'),
+(28,'Duodenal ulcer','Loét tá tràng','Duodenal ulcer','Loét tá tràng','Duodenal ulcer','Loét tá tràng'),
+(29,'Esophageal stricture','Tắc thực quản','Esophageal stricture','Tắc thực quản','Esophageal stricture','Tắc thực quản'),
+(30,'Esophageal varices','Giãn tĩnh mạch thực quản','Esophageal varices','Giãn tĩnh mạch thực quản','Esophageal varices','Giãn tĩnh mạch thực quản'),
+(31,'Fistula','Lỗ rò','Fistula','Lỗ rò','Fistula','Lỗ rò'),
+(32,'Foreign body','Dị vật','Foreign body','Dị vật','Foreign body','Dị vật'),
+(33,'Gastric ulcer','Loét dạ dày','Gastric ulcer','Loét dạ dày','Gastric ulcer','Loét dạ dày'),
+(34,'Gastric varices','Giãn tĩnh mạch dạ dày','Gastric varices','Giãn tĩnh mạch dạ dày','Gastric varices','Giãn tĩnh mạch dạ dày'),
+(35,'GERD','Bệnh trào ngược dạ dày thực quản','GERD','Trào ngược','GERD','Trào ngược'),
+(36,'Lymphoma','Ung thư hạch','Lymphoma','U lympho','Lymphoma','U lympho'),
+(37,'Metastasis, unknown origin','Di căn, không rõ nguyên nhân','Metastasis, unknown origin','Di căn, không rõ nguyên nhân','Metastasis, unknown origin','Di căn, không rõ nguyên nhân'),
+(38,'Esophagitis (others)','Viêm thực quản (loại khác)','Esophagitis (others)','Viêm thực quản (loại khác)','Esophagitis (others)','Viêm thực quản (loại khác)'),
+(39,'Pernicious anaemia','Thiếu máu ác tính','Pernicious anaemia','Thiếu máu ác tính','Pernicious anaemia','Thiếu máu ác tính'),
+(40,'Polyp','Polyp','Polyp','Polyp','Polyp','Polyp'),
+(41,'Precancerrous lesions','Tổn thương tiền ung thư','Precancerrous lesions','Tổn thương tiền ung thư','Precancerrous lesions','Tổn thương tiền ung thư'),
+(42,'Pyloric stenosis','Hẹp môn vị','Pyloric stenosis','Hẹp môn vị','Pyloric stenosis','Hẹp môn vị'),
+(43,'Reflux esophagitis','Viêm thực quản trào ngược','Reflux esophagitis','Viêm thực quản trào ngược','Reflux esophagitis','Viêm thực quản trào ngược'),
+(44,'Superficial neoplastic lesion','Tổn thương tân sinh biểu mô','Superficial neoplastic lesion','Tổn thương tân sinh biểu mô','Superficial neoplastic lesion','Tổn thương tân sinh biểu mô'),
+(45,'Tumor/mass','U / khối u','Tumor/mass','U / khối u','Tumor/mass','U / khối u'),
+(1046,'Achalasia','Co thắt tâm vị','Achalasia','Co thắt tâm vị','Achalasia','Co thắt tâm vị'),
+(1047,'Anastomic leak','Rò rỉ miệng nối','Anastomic leak','Rò rỉ miệng nối','Anastomic leak','Rò rỉ miệng nối'),
+(1048,'Angioectasia','Giãn mao mạch','Angioectasia','Giãn mao mạch','Angioectasia','Giãn mao mạch'),
+(1049,'Atrophic gastritis','Viêm teo dạ dày','Atrophic gastritis','Viêm teo dạ dày','Atrophic gastritis','Viêm teo dạ dày'),
+(1050,'Barretts esophagus','Barrett thực quản','Barretts esophagus','Barrett thực quản','Barretts esophagus','Barrett thực quản'),
+(1051,'Caustic ingestion','Chất ăn mòn','Caustic ingestion','Chất ăn mòn','Caustic ingestion','Chất ăn mòn'),
+(1052,'Celiac disease','Bệnh Celiac','Celiac disease','Bệnh Celiac','Celiac disease','Bệnh Celiac'),
+(1053,'Diverticulum','Túi thừa','Diverticulum','Túi thừa','Diverticulum','Túi thừa'),
+(1054,'Duodenal stricture','Hẹp tá tràng','Duodenal stricture','Hẹp tá tràng','Duodenal stricture','Hẹp tá tràng'),
+(1055,'Duodenal ulcer','Loét tá tràng','Duodenal ulcer','Loét tá tràng','Duodenal ulcer','Loét tá tràng'),
+(1056,'Esophageal stricture','Hẹp thực quản','Esophageal stricture','Hẹp thực quản','Esophageal stricture','Hẹp thực quản'),
+(1057,'Esophageal varices','Giãn tĩnh mạch thực quản','Esophageal varices','Giãn tĩnh mạch thực quản','Esophageal varices','Giãn tĩnh mạch thực quản'),
+(1058,'Fistula','Lỗ rò','Fistula','Lỗ rò','Fistula','Lỗ rò'),
+(1059,'Foreign body','Dị vật','Foreign body','Dị vật','Foreign body','Dị vật'),
+(1060,'Gastric ulcer','Loét dạ dày','Gastric ulcer','Loét dạ dày','Gastric ulcer','Loét dạ dày'),
+(1061,'Gastric varices','Giãn tĩnh mạch dạ dày','Gastric varices','Giãn tĩnh mạch dạ dày','Gastric varices','Giãn tĩnh mạch dạ dày'),
+(1062,'GERD','Bệnh trào ngược dạ dày thực quản','GERD','Bệnh trào ngược dạ dày thực quản','GERD','Bệnh trào ngược dạ dày thực quản'),
+(1063,'Lymphoma','Ung thư hạch','Lymphoma','U lympho','Lymphoma','U lympho'),
+(1064,'Metastasis, unknown origin','Di căn, không rõ nguyên nhân','Metastasis, unknown origin','Di căn, không rõ nguyên nhân','Metastasis, unknown origin','Di căn, không rõ nguyên nhân'),
+(1065,'Esophagitis (others)','Viêm thực quản (loại khác)','Esophagitis (others)','Viêm thực quản (loại khác)','Esophagitis (others)','Viêm thực quản (loại khác)'),
+(1066,'Pernicious anaemia','Thiếu máu ác tính','Pernicious anaemia','Thiếu máu ác tính','Pernicious anaemia','Thiếu máu ác tính'),
+(1067,'Polyp','Polyp','Polyp','Polyp','Polyp','Polyp'),
+(1068,'Precancerrous lesions','Tổn thương tiền ung thư','Precancerrous lesions','Tổn thương tiền ung thư','Precancerrous lesions','Tổn thương tiền ung thư'),
+(1069,'Pyloric stenosis','Hẹp môn vị','Pyloric stenosis','Hẹp môn vị','Pyloric stenosis','Hẹp môn vị'),
+(1070,'Reflux esophagitis','Viêm thực quản trào ngược','Reflux esophagitis','Viêm thực quản trào ngược','Reflux esophagitis','Viêm thực quản trào ngược'),
+(1071,'Superficial neoplastic lesion

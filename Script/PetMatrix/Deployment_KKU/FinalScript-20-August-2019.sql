@@ -1,0 +1,265 @@
+USE [KKU-PetMatrix]
+GO
+--DRUG
+INSERT INTO [dbo].[PMS_CHARGABLE]
+           ([ITEM_UID]
+           ,[ITEM_NAME]
+           ,[SERVICE_TYPE]
+           ,[SERVICE_TYPE_ID]
+           ,[ROUTE_ID]
+           ,[RATE]
+           ,[IS_ACTIVE]
+           ,[QTY]
+           ,[ORG_ID]
+   )
+SELECT CONVERT(VARCHAR(10),'D' +'-' +CONVERT(VARCHAR(10),[UID])) AS [ITEM_UID],[ITEM NAME] AS [ITEM_NAME],
+SERVICE_TYPE AS [SERVICE_TYPE],SERVICE_TYPE_ID AS [SERVICE_TYPE_ID],[ROUTE ID] AS [ROUTE_ID],RATE AS [RATE],
+1 AS [IS_ACTIVE],100 AS [QTY],1 AS [ORG_ID] FROM _DrugItem
+GO
+
+INSERT INTO [dbo].[PMS_CHARGABLE]
+           ([ITEM_UID]
+           ,[ITEM_NAME]
+		   ,[REPORT_HEADER]
+           ,[SERVICE_TYPE]
+           ,[SERVICE_TYPE_ID]
+           ,[RATE]
+		   ,[IS_PANEL]
+           ,[IS_ACTIVE]
+		   ,[UNITS]
+           ,[QTY]
+           ,[ORG_ID]
+   )
+SELECT [ITEM CODE] AS [ITEM_UID],[ITEM NAME] AS [ITEM_NAME],[REPORT HEADER] AS [REPORT_HEADER],
+'LIS' AS [SERVICE_TYPE],7 AS [SERVICE_TYPE_ID],RATE AS [RATE],(CASE WHEN [IS PANEL] = 'NO' THEN 0 WHEN [IS PANEL] = 'YES' THEN 1 END) AS [IS_PANEL],
+1 AS [IS_ACTIVE],[UNITS],0 AS [QTY],1 AS [ORG_ID] FROM [KKU-MasterData]..['Chargable Items_LIS$'] WHERE [ITEM NAME] IS NOT NULL
+GO
+
+--RIS
+
+INSERT INTO [dbo].[PMS_CHARGABLE]
+           ([ITEM_UID]
+           ,[ITEM_NAME]
+           ,[SERVICE_TYPE]
+           ,[SERVICE_TYPE_ID]
+           ,[RATE]
+           ,[IS_ACTIVE]
+           ,[QTY]
+           ,[ORG_ID]
+   )
+SELECT CONVERT(VARCHAR(10),'R' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [ITEM NAME]))) AS [ITEM_UID],[ITEM NAME] AS [ITEM_NAME],
+'RIS' AS [SERVICE_TYPE],12 AS [SERVICE_TYPE_ID],RATE AS [RATE],
+1 AS [IS_ACTIVE],0 AS [QTY],1 AS [ORG_ID] FROM [KKU-MasterData]..['Chargable Items_RIS$'] WHERE [ITEM NAME] IS NOT NULL
+GO
+
+--DF
+INSERT INTO [dbo].[PMS_CHARGABLE]
+           ([ITEM_UID]
+           ,[ITEM_NAME]
+           ,[SERVICE_TYPE]
+           ,[SERVICE_TYPE_ID]
+           ,[RATE]
+           ,[IS_ACTIVE]
+           ,[QTY]
+           ,[ORG_ID]
+   )
+SELECT [ITEM CODE] AS [ITEM_UID],[ITEM NAME] AS [ITEM_NAME],
+'DF' AS [SERVICE_TYPE],6 AS [SERVICE_TYPE_ID],RATE AS [RATE],
+1 AS [IS_ACTIVE],0 AS [QTY],1 AS [ORG_ID] FROM [KKU-MasterData]..['Chargable Items_DF$'] WHERE [ITEM NAME] IS NOT NULL
+GO
+
+--DF
+INSERT INTO [dbo].[PMS_CHARGABLE]
+           ([ITEM_UID]
+           ,[ITEM_NAME]
+           ,[SERVICE_TYPE]
+           ,[SERVICE_TYPE_ID]
+           ,[RATE]
+           ,[IS_ACTIVE]
+           ,[QTY]
+           ,[ORG_ID]
+   )
+SELECT CONVERT(VARCHAR(10),'STD' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [ITEM_NAME]))) AS [ITEM_UID],[ITEM_NAME] AS [ITEM_NAME],
+'STUDY' AS [SERVICE_TYPE],10 AS [SERVICE_TYPE_ID],RATE AS [RATE],
+1 AS [IS_ACTIVE],0 AS [QTY],1 AS [ORG_ID] FROM [KKU-MasterData]..['Chargable Items_STUDY$'] WHERE [ITEM_NAME] IS NOT NULL
+GO
+
+--SERVICE
+INSERT INTO [dbo].[PMS_CHARGABLE]
+           ([ITEM_UID]
+           ,[ITEM_NAME]
+           ,[SERVICE_TYPE]
+           ,[SERVICE_TYPE_ID]
+           ,[RATE]
+           ,[IS_ACTIVE]
+           ,[QTY]
+           ,[ORG_ID]
+   )
+SELECT CONVERT(VARCHAR(10),'SER' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [ITEM NAME]))) AS [ITEM_UID],[ITEM NAME] AS [ITEM_NAME],
+'SERV' AS [SERVICE_TYPE],3 AS [SERVICE_TYPE_ID],RATE AS [RATE],
+1 AS [IS_ACTIVE],0 AS [QTY],1 AS [ORG_ID] FROM [KKU-MasterData]..['Chargable Items_SERVE$'] WHERE [ITEM NAME] IS NOT NULL
+GO
+
+--PANEL
+INSERT INTO [dbo].[PMS_CHARGABLE]
+           ([ITEM_UID]
+           ,[ITEM_NAME]
+           ,[SERVICE_TYPE]
+           ,[SERVICE_TYPE_ID]
+           ,[RATE]
+           ,[IS_ACTIVE]
+           ,[QTY]
+           ,[ORG_ID]
+   )
+SELECT [ITEM CODE] AS [ITEM_UID],[ITEM NAME] AS [ITEM_NAME],
+'PANAL' AS [SERVICE_TYPE],4 AS [SERVICE_TYPE_ID],RATE AS [RATE],
+1 AS [IS_ACTIVE],0 AS [QTY],1 AS [ORG_ID] FROM [KKU-MasterData]..['Chargable Items_PANEL$'] WHERE [ITEM NAME] IS NOT NULL
+GO
+
+--NONE
+INSERT INTO [dbo].[PMS_CHARGABLE]
+           ([ITEM_UID]
+           ,[ITEM_NAME]
+           ,[SERVICE_TYPE]
+           ,[SERVICE_TYPE_ID]
+           ,[RATE]
+           ,[IS_ACTIVE]
+           ,[QTY]
+           ,[ORG_ID]
+   )
+SELECT CONVERT(VARCHAR(10),'NN' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [ITEM NAME]))) AS [ITEM_UID],[ITEM NAME] AS [ITEM_NAME],
+'NONE' AS [SERVICE_TYPE],5 AS [SERVICE_TYPE_ID],RATE AS [RATE],
+1 AS [IS_ACTIVE],0 AS [QTY],1 AS [ORG_ID] FROM [KKU-MasterData]..['Chargable Items_NONE$'] WHERE [ITEM NAME] IS NOT NULL
+GO
+
+--IPD
+INSERT INTO [dbo].[PMS_CHARGABLE]
+           ([ITEM_UID]
+           ,[ITEM_NAME]
+           ,[SERVICE_TYPE]
+           ,[SERVICE_TYPE_ID]
+           ,[RATE]
+           ,[IS_ACTIVE]
+           ,[QTY]
+           ,[ORG_ID]
+   )
+SELECT CONVERT(VARCHAR(10),'IP' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [ITEM_NAME]))) AS [ITEM_UID],[ITEM_NAME] AS [ITEM_NAME],
+'IPD' AS [SERVICE_TYPE],15 AS [SERVICE_TYPE_ID],RATE AS [RATE],
+1 AS [IS_ACTIVE],0 AS [QTY],1 AS [ORG_ID] FROM [KKU-MasterData]..['Chargable Items_IPD$'] WHERE [ITEM_NAME] IS NOT NULL
+GO
+
+SELECT * FROM [PMS_CHARGABLE] WHERE SERVICE_TYPE = 'IPD'
+
+--Admission Reason
+INSERT INTO [KKU-PetMatrix]..IP_ADMISSION_REASON(REASON_UID,REASON_TEXT,AMOUNT,ORG_ID)
+SELECT CONVERT(VARCHAR(10),'AR' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [Admission Reason]))) AS [REASON_UID],[Admission Reason] AS REASON_TEXT,
+[Advance Amount] AS AMOUNT,1 AS ORG_ID
+ FROM [KKU-MasterData]..['Admission Reason$']
+
+ DBCC CHECKIDENT (IP_ADMISSION_REASON, reseed, 0)
+SELECT * FROM [KKU-PetMatrix]..IP_ADMISSION_REASON
+
+
+--IP Building
+DBCC CHECKIDENT (IP_BUILDING, reseed, 0)
+
+--IP Floor
+DBCC CHECKIDENT (IP_Floor, reseed, 0)
+
+--IP Ward
+DBCC CHECKIDENT (IP_Ward, reseed, 0)
+
+--IP Room Type
+DBCC CHECKIDENT (IP_ROOMTYPE, reseed, 0)
+INSERT INTO [dbo].[IP_ROOMTYPE]([ROOMTYPE_UID],[ROOMTYPE_TEXT],[ITEM_ID],ORG_ID)
+SELECT CONVERT(VARCHAR(10),'RT' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [Room Type name]))) AS [REASON_UID],[Room Type name] AS [ROOMTYPE_TEXT],
+2513 AS ITEM_ID,1 AS ORG_ID
+ FROM [KKU-MasterData]..['Room Type$']
+
+ SELECT * FROM [KKU-MasterData]..['Room Type$']
+ SELECT * FROM [KKU-PetMatrix]..IP_ROOMTYPE
+
+ --Room
+ SELECT * FROM IP_ROOM
+ SELECT * FROM IP_WARD
+ DBCC CHECKIDENT (IP_ROOM, reseed, 0)
+
+
+INSERT INTO [KKU-PetMatrix]..IP_ADMISSION_REASON(REASON_UID,REASON_TEXT,AMOUNT,ORG_ID)
+SELECT CONVERT(VARCHAR(10),'AR' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [Admission Reason]))) AS [REASON_UID],[Admission Reason] AS REASON_TEXT,
+[Advance Amount] AS AMOUNT,1 AS ORG_ID
+ FROM [KKU-MasterData]..['Admission Reason$']
+
+ --BED
+ INSERT INTO [KKU-PetMatrix]..IP_BED(BED_UID,BED_TEXT,CAGE_ID,CAGE_NAME, ROOM_ID,BED_STATUS,ORG_ID)
+SELECT CONVERT(VARCHAR(10),'BD' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [Bed Name]))) AS [BED_UID],[Bed Name] AS BED_TEXT,
+(CASE WHEN [Cage Name] = 'Small Size' THEN 1 
+     WHEN [Cage Name] = 'Medium Size' THEN 2
+	 WHEN [Cage Name] = 'Large Size' THEN 3  
+	 WHEN [Cage Name] = 'Extra Large Size' THEN 4 END) AS CAGE_ID,[Cage Name] AS CAGE_NAME, 
+1 AS ROOM_ID,'F' AS BED_STATUS,1 AS ORG_ID
+ FROM [KKU-MasterData]..[Bed$]
+
+DBCC CHECKIDENT (IP_BED, reseed, 0)
+
+--SCHEDULE TYPE
+DELETE FROM PMS_SCHEDULETYPE
+DBCC CHECKIDENT (PMS_SCHEDULETYPE, reseed, 0)
+SELECT * FROM [KKU-MasterData]..['Schedule Type$']
+INSERT INTO PMS_SCHEDULETYPE(SCHEDULE_TYPE_UID,SCHEDULE_TYPE_TEXT,IS_ACTIVE,ORG_ID)
+SELECT CONVERT(VARCHAR(10),'ST' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [Appointment Type Name]))) AS [SCHEDULE_TYPE_UID],
+[Appointment Type Name] AS SCHEDULE_TYPE_TEXT, 1 AS [IS_ACTIVE],1 AS [ORG_ID]
+FROM [KKU-MasterData]..['Schedule Type$']
+
+SELECT * FROM [PetMatrix]..PMS_CHARGABLE WHERE SERVICE_TYPE = 'LIS'
+
+--USER DETAILS
+SELECT * FROM HR_USER
+DELETE FROM HR_USER
+DBCC CHECKIDENT (HR_USER, reseed, 0)
+
+INSERT INTO [dbo].[HR_USER]
+           ([USER_UID],[USER_NAME],[JOB_TYPE],[TITLE_NLS],[FNAME_NLS],[LNAME_NLS]
+           ,[TITLE_ENG],[FNAME_ENG],[LNAME_ENG],[GENDER],[EMAIL_PERSONAL],[EMAIL_OFFICIAL]
+           ,[PHONE_HOME],[IS_ACTIVE],[ORG_ID],[TIMEZONE_ID],[IS_AUTO_REFRESH],[REFRESH_TIME])
+
+SELECT CONVERT(VARCHAR(10),'U' +'-' +CONVERT(VARCHAR(10),ROW_NUMBER() OVER(ORDER BY [User Name]))) AS [USER_UID],
+[User Name] AS [USER_NAME],(CASE WHEN [Job Type] = 'admin, vet' THEN 'A'
+								WHEN [Job Type] = 'vet' THEN 'D'
+								WHEN [Job Type] = 'Counter' THEN 'H'
+								WHEN [Job Type] = 'Operator' THEN 'O'
+								WHEN [Job Type] = 'Cashier' THEN 'C'
+								WHEN [Job Type] = 'Drug' THEN 'P'
+								WHEN [Job Type] = 'Cashier, operator' THEN 'C'
+								WHEN [Job Type] = 'Lab' THEN 'L' END) AS [JOB_TYPE],
+
+[Title (National Language)] AS [TITLE_NLS], [First Name (National Language)] AS [FNAME_NLS], [Last Name (National Language)] AS [LNAME_NLS],
+[Title (English)] AS [TITLE_ENG], [First Name (English)] AS  [FNAME_ENG], [Last Name (English)] AS [LNAME_ENG],
+(CASE WHEN [Gender] = 'female' THEN 'F'
+	WHEN [Gender] = 'male' THEN 'M' END) AS [GENDER],Email AS [EMAIL_PERSONAL],
+Email AS [EMAIL_OFFICIAL],[Phone Number] AS [PHONE_HOME],1 AS [IS_ACTIVE],1 AS [ORG_ID],'Indochina Time' AS [TIMEZONE_ID],0 AS [IS_AUTO_REFRESH], 60 AS [REFRESH_TIME] 
+ FROM [KKU-MasterData]..['User Details$']
+
+DELETE FROM GBL_GRANTROLE
+DBCC CHECKIDENT (GBL_GRANTROLE, reseed, 0)
+
+--SELECT * FROM  [KKU-MasterData]..['Chargable Items_DF$']
+--SELECT DISTINCT [DRUG ROUTE] FROM [KKU-MasterData]..['Chargable Items_DRUG$']
+
+--SELECT * FROM [KKU-MasterData]..['Chargable Items_VACCINE$']
+--SELECT * FROM [KKU-MasterData]..['Chargable Items_STUDY$']
+--SELECT * FROM [KKU-MasterData]..['Chargable Items_SERVE$']
+--SELECT * FROM [KKU-MasterData]..['Chargable Items_Shop$']
+--SELECT * FROM [KKU-MasterData]..['Chargable Items_RIS$']
+--SELECT * FROM [KKU-MasterData]..['Chargable Items_PANEL$']
+--SELECT * FROM [KKU-MasterData]..['Chargable Items_NONE$']
+--SELECT * FROM [KKU-MasterData]..['Chargable Items_LIS$']
+SELECT * FROM [KKU-MasterData]..['Chargable Items_IPD$']
+
+SELECT * FROM PMS_SERVICETYPE
+
+DBCC CHECKIDENT (PMS_CHARGABLE, reseed, 2511)
+
+SELECT IS_PANEL FROM [PetMatrix]..PMS_CHARGABLE WHERE SERVICE_TYPE = 'LIS' AND IS_PANEL = 1
+
+SELECT * FROM PMS_CHARGABLE

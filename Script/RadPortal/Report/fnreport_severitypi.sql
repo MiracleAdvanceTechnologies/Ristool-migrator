@@ -1,0 +1,20 @@
+CREATE OR REPLACE FUNCTION public.fnreport_severitypi(p_start_date date, p_end_date date, p_org_id text)
+ RETURNS TABLE("SEVERITY" text, "VALUE" bigint)
+ LANGUAGE sql
+AS $function$
+SELECT "SEVERITY", count(*) AS "VALUE" FROM (
+SELECT 
+(SELECT "SEVERITY_NAME" FROM "RIS_EXAMRESULTSEVERITY" WHERE "RIS_EXAMRESULTSEVERITY"."SEVERITY_ID" = "RIS_EXAMRESULT"."SEVERITY_ID") AS "SEVERITY"
+FROM "RIS_ORDERDTL" 
+JOIN "RIS_EXAMRESULT" ON ("RIS_ORDERDTL"."ORDER_ID" = "RIS_EXAMRESULT"."ORDER_ID")
+WHERE 
+(p_org_id IS null or ("RIS_ORDERDTL"."ORG_ID" = ANY(SELECT(regexp_split_to_table(p_org_id, ','))::INTEGER)))  --1,2,3
+AND ("RIS_ORDERDTL"."CREATED_ON"::date BETWEEN p_start_date AND p_end_date)
+AND ("RIS_ORDERDTL"."STATUS" = 'F')
+AND ("RIS_EXAMRESULT"."SEVERITY_ID" IS NOT NULL)
+) AS main GROUP BY "SEVERITY"
+$function$
+;
+
+
+--SELECT * FROM fnreport_severitypi('2023-03-01', '2023-03-27', null)

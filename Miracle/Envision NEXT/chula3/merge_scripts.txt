@@ -1,0 +1,293 @@
+Pms_Organ
+
+IS_DEFAULT - boolean
+SORT_ID - integer
+IS_CHECKED - boolean
+
+Scripts:
+
+ALTER Table "PMS_ORGAN" add column "IS_DEFAULT" BOOLEAN default false;
+
+ALTER Table "PMS_ORGAN" add column "SORT_ID" int;
+
+ALTER Table "PMS_ORGAN" add column "IS_CHECKED" BOOLEAN default false;
+
+
+Update "PMS_ORGAN" set "IS_ACTIVE"=false where "ORGAN_ID"=1021 and "ORGAN_NAME"='Intervention';
+
+INSERT INTO public."PMS_ORGAN"(
+	 "ORGAN_NAME", "ORGAN_UID", "DISPLAY_NAME", "STUDY_ID", "IS_ACTIVE", "ORG_ID")
+	VALUES ('Anatomy', 'Anatomy', 'Anatomy', 22172, true, 15),
+	( 'Duodenum', 'Duodenum', 'Duodenum', 22172, true, 15),
+	('Ampulla', 'Ampulla', 'Ampulla', 22172, true, 15),
+	( 'Bile duct (cholangiogram)', 'Bile duct (cholangiogram)', 'Bile duct (cholangiogram)', 22172, true, 15),
+	( 'Pancreatic duct (pancreatogram)', 'Pancreatic duct (pancreatogram)', 'Pancreatic duct (pancreatogram)', 22172, true, 15);
+
+
+
+Update "PMS_ORGAN" set "SORT_ID"=1 where "DISPLAY_NAME"='Oropharynx and Hypopharynx' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "SORT_ID"=2 where "DISPLAY_NAME"='Esophagus' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "SORT_ID"=3 where "DISPLAY_NAME"='Stomach' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "SORT_ID"=4 where "DISPLAY_NAME"='Duodenum' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "SORT_ID"=5,"IS_CHECKED"=false where "DISPLAY_NAME"='Jejunum' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "IS_ACTIVE"=false where "DISPLAY_NAME"='Intervention' and "STUDY_ID"=20171;
+
+Update "PMS_ORGAN" set "IS_DEFAULT"=true where "ORGAN_ID"=16;
+
+
+Update "PMS_ORGAN" set "IS_CHECKED"=true where "ORGAN_ID" in (9,10,11,12);
+
+
+
+
+
+
+Add Table:
+
+PMR_EXAMINATION_PART
+
+Script:
+
+CREATE TABLE "PMR_EXAMINATION_PART"(
+	"EXAMINATION_PART_ID" serial,
+	"ACCESSION_NO" character varying(30),
+	"RPT_REGION_ID" integer ,
+	"IS_CHECKED" boolean DEFAULT true,
+	
+	"IS_ACTIVE" boolean DEFAULT true,
+    "ORG_ID" integer,
+    "CREADTED_BY" integer,
+    "CREADTED_ON" timestamp without time zone,
+    "LAST_MODIFIED_BY" integer,
+    "LAST_MODIFIED_ON" timestamp without time zone,
+	PRIMARY KEY("EXAMINATION_PART_ID")
+);
+
+ALTER table "PMR_EXAMINATION_PART" ADD column "ORGAN_ID" integer;
+
+
+PMS_RPT_REGION
+
+script:
+
+INSERT INTO "PMS_RPT_REGION"("ORGAN_ID","NAME","OMITTED_NAME","CHOOSE_NAME","DISP_NAME","IS_ACTIVE","IS_DEFAULT","ORG_ID","CLASS1","CLASS2","CLASS3","IS_REGION1")
+ VALUES 
+ (16,'Terminal ileum','Terminal ileum','Terminal ileum','Terminal ileum',TRUE,FALSE,15,103010193,0,0,TRUE),
+ (16,'Ileocecal valve','Ileocecal valve','Ileocecal valve','Ileocecal valve',TRUE,FALSE,15,103010194,0,0,TRUE)
+
+
+Update "PMS_RPT_REGION" set "IS_ACTIVE"=false where "PMS_RPT_REGION"."RPT_REGION_ID" in(
+34892,
+34898,
+34900
+	);
+
+
+DELETE FROM "PMS_RPT_REGION" WHERE "DISP_NAME" LIKE 'Hepatic flexure' AND "ORGAN_ID"=16 ;
+
+DELETE FROM "PMS_RPT_REGION" WHERE "DISP_NAME" LIKE 'Splenic flexure' AND "ORGAN_ID"=16;
+
+
+
+INSERT INTO "PMS_RPT_REGION" ("ORGAN_ID","CLASS1","CLASS2","CLASS3", "NAME", "OMITTED_NAME",  "CHOOSE_NAME",  "DISP_NAME", "IS_ACTIVE","ORG_ID","IS_DEFAULT", "SINGULAR","SORT_ID","INPUT_TYPE","DELIMITER","IS_REGION1")
+
+ SELECT "ORGAN_ID","CLASS1","CLASS2","CLASS3",'Anus' AS "NAME",'Anus' AS "OMITTED_NAME", 'Anus' AS "CHOOSE_NAME", 'Anus' AS "DISP_NAME", TRUE AS "IS_ACTIVE","ORG_ID","IS_DEFAULT",'Anus' AS "SINGULAR","SORT_ID","INPUT_TYPE","DELIMITER","IS_REGION1" FROM "PMS_RPT_REGION" WHERE "NAME"='Diffused' AND "ORGAN_ID"=16
+
+
+
+
+Update "PMS_RPT_REGION" set "SORT_ID"=0 where "DISP_NAME"='Terminal ileum' and "ORGAN_ID"=16 AND "IS_REGION1"=TRUE AND "IS_ACTIVE"=TRUE;
+Update "PMS_RPT_REGION" set "SORT_ID"=1 where "DISP_NAME"='Ileocecal valve' and "ORGAN_ID"=16 AND "IS_REGION1"=TRUE AND "IS_ACTIVE"=TRUE;
+Update "PMS_RPT_REGION" set "SORT_ID"=2 where "DISP_NAME"='Cecum' and "ORGAN_ID"=16 AND "IS_REGION1"=TRUE AND "IS_ACTIVE"=TRUE;
+Update "PMS_RPT_REGION" set "SORT_ID"=3 where "DISP_NAME"='Ascending colon' and "ORGAN_ID"=16 AND "IS_REGION1"=TRUE AND "IS_ACTIVE"=TRUE;
+Update "PMS_RPT_REGION" set "SORT_ID"=4 where "DISP_NAME"='Transverse colon' and "ORGAN_ID"=16 AND "IS_REGION1"=TRUE AND "IS_ACTIVE"=TRUE;
+Update "PMS_RPT_REGION" set "SORT_ID"=5 where "DISP_NAME"='Descending colon' and "ORGAN_ID"=16 AND "IS_REGION1"=TRUE AND "IS_ACTIVE"=TRUE;
+Update "PMS_RPT_REGION" set "SORT_ID"=6 where "DISP_NAME"='Sigmoid colon' and "ORGAN_ID"=16 AND "IS_REGION1"=TRUE AND "IS_ACTIVE"=TRUE;
+Update "PMS_RPT_REGION" set "SORT_ID"=7 where "DISP_NAME"='Rectum' and "ORGAN_ID"=16 AND "IS_REGION1"=TRUE AND "IS_ACTIVE"=TRUE;
+Update "PMS_RPT_REGION" set "SORT_ID"=8 where "DISP_NAME"='Anus' and "ORGAN_ID"=16 AND "IS_REGION1"=TRUE AND "IS_ACTIVE"=TRUE;
+
+
+
+PMS_RPT_DIAGONOSIS
+
+Script:
+ALTER TABLE "PMS_RPT_DIAGONOSIS" ADD "SYS_DISP_RANK" INTEGER DEFAULT 0;
+
+
+
+HR_USER:
+
+Script:
+ALTER TABLE "HR_USER" ADD COLUMN "HIS_ID" int;
+
+
+
+PMS_CHARGABLE
+
+
+Script:
+
+ALTER TABLE "PMS_CHARGABLE" ADD "ITEM_NAME_NLS" CHARACTER VARYING(200);
+
+ALTER TABLE "PMS_CHARGABLE" ADD "PROCEDURE_CODE" CHARACTER VARYING(100);
+
+UPDATE "PMS_CHARGABLE"
+SET "ITEM_UID"  =(
+CASE
+    WHEN "ITEM_NAME" ='EGD' THEN 'EGD'
+    WHEN "ITEM_NAME" ='Colonoscopy' THEN 'COLONOSCOPY'
+    WHEN "ITEM_NAME" ='Sigmoidoscopy' THEN 'SIGMOIDOSCOPY'
+    WHEN "ITEM_NAME" ='ERCP' THEN 'ERCP 2'
+    WHEN "ITEM_NAME" ='EUS' THEN 'EUS'
+    WHEN "ITEM_NAME" ='EGD+Colonoscopy' THEN 'EGD+Colonoscopy'
+  END),
+  "GOVT_ID" =(
+  CASE
+    WHEN "ITEM_NAME" ='EGD' THEN '6710301'
+    WHEN "ITEM_NAME" ='Colonoscopy' THEN '6710302'
+    WHEN "ITEM_NAME" ='Sigmoidoscopy' THEN '6710303'
+    WHEN "ITEM_NAME" ='ERCP' THEN '6710304'
+    WHEN "ITEM_NAME" ='EUS' THEN '6710305'
+    WHEN "ITEM_NAME" ='EGD+Colonoscopy' THEN '6710446'
+  END
+  ),"ITEM_NAME_NLS" =(
+   CASE
+    WHEN "ITEM_NAME" ='EGD' THEN 'ส่องกล้องกระเพาะอาหาร ตึกภูมิสิริฯ 10A'
+    WHEN "ITEM_NAME" ='Colonoscopy' THEN 'ส่องกล้องลำไส้ใหญ่ ตึกภูมิสิริฯ 10A'
+    WHEN "ITEM_NAME" ='Sigmoidoscopy' THEN 'ส่องกล้องลำไส้เล็ก (DBE) ตึกภูมิสิริฯ 10A'
+    WHEN "ITEM_NAME" ='ERCP' THEN 'ส่องกล้อง ERCP ตึกภูมิสิริฯ 10A'
+    WHEN "ITEM_NAME" ='EUS' THEN 'ส่องกล้อง EUS ตึกภูมิสิริฯ 10A'
+    WHEN "ITEM_NAME" ='EGD+Colonoscopy' THEN 'ส่องกล้องกระเพาะอาหารและลำไส้ใหญ่'
+  END
+  ),"PROCEDURE_CODE" =(
+   CASE
+    WHEN "ITEM_NAME" ='EGD' THEN '671001'
+    WHEN "ITEM_NAME" ='Colonoscopy' THEN '671002'
+    WHEN "ITEM_NAME" ='Sigmoidoscopy' THEN '671003'
+    WHEN "ITEM_NAME" ='ERCP' THEN '671004'
+    WHEN "ITEM_NAME" ='EUS' THEN '671005'
+    WHEN "ITEM_NAME" ='EGD+Colonoscopy' THEN '671046'
+  END
+  )
+WHERE "ORG_ID"=15 and "PMS_CHARGABLE"."SERVICE_TYPE_ID"=1023
+and "PMS_CHARGABLE"."IS_ACTIVE"=true and "ITEM_NAME" IN ('EGD','Colonoscopy','Sigmoidoscopy','ERCP','EUS','EGD+Colonoscopy');
+
+
+
+
+
+
+
+
+GBL_ENV
+
+Script:
+
+Alter table "GBL_ENV" add column "DEFAULT_REPORT_IMAGE_URL" character varying;
+
+Alter table "GBL_ENV" add column "SEND_ALL_IMAGE_TO_PACS" boolean default true;
+
+
+PMR_SCHEDULRDTL
+
+Script:
+
+ALTER TABLE "PMR_SCHEDULEDTL" ADD COLUMN "VISIT_NO" character varying;
+
+ALTER TABLE "PMR_SCHEDULEDTL" ADD COLUMN "VISIT_DT" timestamp without time zone;
+
+ALTER TABLE "PMR_SCHEDULEDTL" ADD COLUMN "CLINIC_CODE" character varying;
+
+ALTER TABLE "PMR_ORDERDTL" ADD COLUMN "VISIT_NO" character varying;
+
+ALTER TABLE "PMR_ORDERDTL" ADD COLUMN "VISIT_DT" timestamp without time zone;
+
+
+
+PMS_PATIENT
+
+Script:
+ALTER TABLE "PMS_PATIENT" ADD COLUMN "HIS_HN" character varying;
+
+
+Chart table:
+ Script: 
+
+INSERT INTO "public"."GBL_CHARTDTL" ("CHARTDTL_ID", "CHART_ID", "CHARTDTL_UID", "CHARTDTL_NAME", "DESCRIPTION", "API_URL", "ORG_ID", "CREATED_BY", "CREATED_ON", "LAST_MODIFIED_BY", "LAST_MODIFIED_ON") VALUES
+(11, 1, 'CD009     ', 'Complication Status', NULL, NULL, 15, 1, NULL, NULL, NULL),
+(12, 2, 'CD010     ', 'Study Wise Waiting Time', NULL, NULL, 15, 1, NULL, NULL, NULL);
+
+INSERT INTO "public"."GBL_CHARTSUBSCRIPTION" ("CHARTSUBSCRIPTION_ID", "CHARTDTL_ID", "ROLE_ID", "ORG_ID", "CREATED_BY", "CREATED_ON", "LAST_MODIFIED_BY", "LAST_MODIFIED_ON") VALUES
+(13, 11, 1, 15, 1, NULL, NULL, NULL);
+INSERT INTO "public"."GBL_CHARTSUBSCRIPTION" ("CHARTSUBSCRIPTION_ID", "CHARTDTL_ID", "ROLE_ID", "ORG_ID", "CREATED_BY", "CREATED_ON", "LAST_MODIFIED_BY", "LAST_MODIFIED_ON") VALUES
+(14, 12, 1, 15, 1, NULL, NULL, NULL);
+
+
+PMR_SCHEDULE
+
+Script:
+
+alter table "PMR_SCHEDULE" 
+add "CREATED_FROM" varchar(50);
+
+ALTER table "PMR_SCHEDULE" ADD COLUMN "IS_CONFIRMED" boolean default false;
+
+
+ALTER TABLE public."PMR_SCHEDULE"
+    ADD COLUMN "IS_COMBINED" boolean DEFAULT false;
+
+
+PMR_ORDER
+
+Script:
+
+ALTER TABLE "PMR_ORDER"
+    ADD COLUMN "IS_COMBINED" boolean DEFAULT false;
+    
+ALTER TABLE "PMR_ORDER"
+    ADD COLUMN "ORIGINATED_PROC_CODE" character varying;
+
+
+
+GBL_SCHEDULEREXECUTELOG
+
+Script:
+
+CREATE TABLE "GBL_SCHEDULEREXECUTELOG" (
+	"SCHEDULEREXECUTELOG_ID" int8 CONSTRAINT "PK_GBL_SCHEDULEREXECUTELOG" PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,
+	"API_NAME"	varchar(100),
+	"API_URL"	varchar(255),
+	"REQUEST_TYPE"	varchar(50),
+	"REQUEST_BODY"	text,	
+	"RESPONSE_STATUS"	int,
+	"RESPONSE_MESSAGEE"	text,	
+	"REQUESTED_ON" timestamp,
+    "RESPONDED_ON" timestamp,
+	"TRANSACTION_BY" int4,
+	"TRANSACTION_ON" timestamp
+);
+
+
+HIS_USER
+
+Script :
+
+CREATE TABLE IF NOT EXISTS public."HIS_USER"
+(
+    "HIS_USER_ID" serial PRIMARY KEY,
+    "SCHEDULE_ID" int4 NOT NULL,
+    "HIS_ID" int4,
+    "HIS_NAME" varchar(100),
+    "IS_ACTIVE" boolean DEFAULT false,
+    "ORG_ID" integer,
+    "CREADTED_BY" integer,
+    "CREADTED_ON" timestamp without time zone,
+    "LAST_MODIFIED_BY" integer,
+    "LAST_MODIFIED_ON" timestamp without time zone
+
+)
+
+
+
+***** DELETE THE Report Template*****
+ 

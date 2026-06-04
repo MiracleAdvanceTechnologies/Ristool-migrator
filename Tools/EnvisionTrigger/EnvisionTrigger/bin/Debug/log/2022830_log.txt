@@ -1,0 +1,184 @@
+Log File Created
+
+Log Entry : 18:25:57 30 สิงหาคม 2565
+  :
+  :Startup Path : C:\Users\Surajit\Source\Repos\EnvisionTrigger\EnvisionTrigger\bin\Debug\EnvisionTrigger.exe
+-------------------------------
+
+Log Entry : 9:05:47 PM Tuesday, 30 August 2022
+  :
+  :Startup Path : D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\bin\Debug\EnvisionTrigger.exe
+-------------------------------
+
+Log Entry : 10:14:50 PM Tuesday, 30 August 2022
+  :
+  :Startup Path : D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\bin\Debug\EnvisionTrigger.exe
+-------------------------------
+
+Log Entry : 10:15:02 PM Tuesday, 30 August 2022
+  :
+  :Error : System.Security.SecurityException: Requested registry access is not allowed.
+   at System.ThrowHelper.ThrowSecurityException(ExceptionResource resource)
+   at Microsoft.Win32.RegistryKey.OpenSubKey(String name, Boolean writable)
+   at EnvisionTrigger.RegHelper.SetRunOnStartup(String path, Boolean remove) in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\RegHelper.cs:line 47
+   at EnvisionTrigger.Program.SetInitValues() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\Program.cs:line 317
+   at EnvisionTrigger.Program.Main() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\Program.cs:line 81
+The Zone of the assembly that failed was:
+MyComputer
+-------------------------------
+
+Log Entry : 11:06:35 PM Tuesday, 30 August 2022
+  :
+  :PORT NAME: COM3
+-------------------------------
+
+Log Entry : 11:06:35 PM Tuesday, 30 August 2022
+  :
+  :BAUD RATE: 4800
+-------------------------------
+
+Log Entry : 11:06:35 PM Tuesday, 30 August 2022
+  :
+  :DATA BIT: 8
+-------------------------------
+
+Log Entry : 11:06:35 PM Tuesday, 30 August 2022
+  :
+  :PARITY: None
+-------------------------------
+
+Log Entry : 11:06:35 PM Tuesday, 30 August 2022
+  :
+  :STOP_BIT: One
+-------------------------------
+
+Log Entry : 11:06:35 PM Tuesday, 30 August 2022
+  :
+  :Service Running....
+-------------------------------
+
+Log Entry : 11:14:23 PM Tuesday, 30 August 2022
+  :
+  :PORT NAME: COM3
+-------------------------------
+
+Log Entry : 11:14:23 PM Tuesday, 30 August 2022
+  :
+  :BAUD RATE: 4800
+-------------------------------
+
+Log Entry : 11:14:23 PM Tuesday, 30 August 2022
+  :
+  :DATA BIT: 8
+-------------------------------
+
+Log Entry : 11:14:23 PM Tuesday, 30 August 2022
+  :
+  :PARITY: None
+-------------------------------
+
+Log Entry : 11:14:23 PM Tuesday, 30 August 2022
+  :
+  :STOP_BIT: One
+-------------------------------
+
+Log Entry : 11:14:23 PM Tuesday, 30 August 2022
+  :
+  :Service Running....
+-------------------------------
+
+Log Entry : 11:14:40 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:43 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:43 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:43 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:44 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:44 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:44 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:45 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:45 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:45 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:45 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:45 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:50 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:50 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:50 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------
+
+Log Entry : 11:14:50 PM Tuesday, 30 August 2022
+  :
+  :Error : System.NullReferenceException: Object reference not set to an instance of an object.
+   at EnvisionTrigger.DeviceInfo.ShowDeviceSettings() in D:\Pridesys IT\Enivision Trigger\EnvisionTrigger\EnvisionTrigger\DeviceInfo.cs:line 35
+-------------------------------

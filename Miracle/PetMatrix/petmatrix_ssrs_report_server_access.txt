@@ -1,0 +1,3 @@
+*Link:* http://203.145.118.6/ReportServer_MSSQLSERVER2016
+*User Name* : Administrator
+*Password* :  pacs@JF

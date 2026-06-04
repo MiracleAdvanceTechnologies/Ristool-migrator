@@ -1,0 +1,34 @@
+SELECT * FROM "PMS_ORGAN" --lesion
+SELECT * FROM "PMS_RPT_REGION" --regions
+SELECT * FROM "PMS_RPT_DIAGONOSIS" --Finding
+SELECT * FROM "PMS_RPT_FINDINGS" -- Finding  DTL
+SELECT * FROM "PMS_RPT_TREATMENT" -- Intervention
+
+_________________________________________________________________________________________
+26-07-2022
+_____________________________________________________________________________________________
+
+INSERT INTO "PMS_RPT_REGION"("ORGAN_ID","NAME","OMITTED_NAME","CHOOSE_NAME","DISP_NAME","IS_ACTIVE","IS_DEFAULT","ORG_ID","CLASS1","CLASS2","CLASS3","IS_REGION1")
+ VALUES 
+ (10,'Esophagogastric Junction','Esophagogastric Junction','Esophagogastric Junction','Esophagogastric Junction',TRUE,FALSE,15,103010196,0,0,TRUE)
+
+
+Update "PMS_ORGAN" set "SORT_ID"=1 where "ORGAN_NAME"='Oropharynx and Hypopharynx' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "SORT_ID"=2 where "ORGAN_NAME"='Esophagus' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "SORT_ID"=4 where "ORGAN_NAME"='Duodenum' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "SORT_ID"=5 where "ORGAN_NAME"='Jejunum' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "SORT_ID"=3 where "ORGAN_NAME"='Stomach' and "STUDY_ID"=20171;
+Update "PMS_ORGAN" set "IS_ACTIVE"=false where "ORGAN_NAME"='Intervention' and "STUDY_ID"=20171;
+
+ALTER table "PMS_ORGAN" ADD column "SORT_ID" integer;
+ALTER table "PMR_EXAMINATION_PART" ADD column "ORGAN_ID" integer;
+
+
+INSERT INTO "PMS_RPT_REGION"("ORGAN_ID","NAME","OMITTED_NAME","CHOOSE_NAME","DISP_NAME","IS_ACTIVE","IS_DEFAULT","ORG_ID","CLASS1","CLASS2","CLASS3","IS_REGION1")
+ VALUES 
+ (12,'4th part','4th part','4th part','4th part',TRUE,FALSE,15,103010197,0,0,TRUE)
+
+
+INSERT INTO "PMS_RPT_REGION"("ORGAN_ID","NAME","OMITTED_NAME","CHOOSE_NAME","DISP_NAME","IS_ACTIVE","IS_DEFAULT","ORG_ID","CLASS1","CLASS2","CLASS3","IS_REGION1")
+ VALUES 
+ (11,'Incisura','Incisura','Incisura','Incisura',TRUE,FALSE,15,103010198,0,0,TRUE)

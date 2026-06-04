@@ -1,0 +1,79 @@
+Software Engineer
+
+
+
+
+Overview
+
+Flarie is a leading entertainment company providing brands with a scalable platform for gaming via advertisement to entertain and engage their audiences globally on any device or touchpoint.
+
+Today Flarie working with brands such as Unilever, Universal, Klarna, Coca-Cola, SJ, TV4, MAX, and American Express.
+
+Branded entertainment and gamification are growing rapidly – and we believe in a future where customers do not feel annoyed and interrupted by banners and ads.
+
+Flarie is a fast-growing company based in Sweden where we are dedicated to developing innovative solutions that meet the needs of today's ever-changing technological landscape. As a young and dynamic team, we strive to stay ahead of the curve and make a real impact in the industry.
+
+Our core focus is on delivering software solutions that are user-friendly, intuitive, and scalable. We understand the importance of delivering products that are not only functional but also aesthetically pleasing and enjoyable to use.
+
+The Role
+
+The Dhaka Development team is seeking a Software Engineer to drive meaningful impact for our customers. As a Software Engineer, you will own key platform features design, implementation, test, and development. We are looking for self-motivated individuals from all backgrounds, who are prepared to take on the challenges and opportunities that come from working in a fast-paced, early-stage company.
+
+Primary Role & Responsibilities
+
+Build powerful web applications using NodeJs, NestJs, NextJs, TypeScript, and ReactJs, 
+Design and implement robust database schemas and perform efficient queries using AWS DynamoDB (primary database) and MySQL.
+Develop e2e, integration, and unit tests to ensure code quality and maintainability
+Contribute to technical architecture design for our new products and enhancements to current products
+Collaborate closely with other software engineers, product managers, and designers
+Contribute to sprint planning, make technical decisions
+Ideal Background
+
+B.S. and/or M.S. in Computer Science or a related technical field, or equivalent experience.
+2 - 5 years of experience building applications on a modern web technology stack.
+Proficient in NodeJs, ReactJs, and TypeScript ( Preferable NestJs, NextJs )
+Strong knowledge of databases like MySQL, and Redis. (Preferable DynamoDB)
+Strong problem-solving skills with algorithms and data structure.
+Experience with automated testing like unit, integration, and e2e test.
+Strong communication skills.
+Proficient in oral and written English.
+Mandatory Requirements
+Applicant must have  2+ years of professional experience in developing applications on a modern web technology stack.
+Minimum 1+ years of working experience on Node JS with any database.
+Cultural Values
+
+Mission-driven and fast-paced, entrepreneurial environment.
+A collaborative and flat company culture.
+Cross-cultural team bonding/networking.
+Open to feedback for continuous improvement
+Benefits
+
+Competitive salary
+Paid leaves 
+Carryover on paid leaves 
+Free breakfast, lunch, and snacks
+Yearly 2 festival bonuses.
+Wedding Bonus.
+New Born Bonus.
+Parental Leave.
+Yearly performance review 
+Regular tours and events (national/international)
+Access to training materials 
+A good work culture
+Work-life Balance
+Workday: Monday to Friday
+
+Salary: 70000 to 120000 BDT (we are willing to pay more to deserving candidates )
+
+If you are a highly motivated Software Engineer who is passionate about delivering high-quality software products, we would love to hear from you.
+
+Location:
+Gulshan 1, Dhaka
+
+
+
+Application Submission Rules
+
+Our Mandatory Requirements must need to be fulfilled with above criteria.
+Your resume pdf format will be [FullName]_[YearsOfProfessionalExperience].pdf, for example, John Doe_3.pdf.
+If any of these rules are not followed, the application will be declined 

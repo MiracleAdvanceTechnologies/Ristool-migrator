@@ -1,0 +1,7 @@
+1. Manual testing: 
+https://www.guru99.com/software-testing.html
+
+2. Automation
+https://testautomationu.applitools.com/
+
+3.https://automationstepbystep.com/

@@ -1,0 +1,46 @@
+Log File Created
+
+Log Entry : 1:59:53 14 พฤษภาคม 2564
+  :
+  :Startup Path : C:\Users\Surajit\Source\Repos\EnvisionTrigger\EnvisionTrigger\bin\Debug\EnvisionTrigger.exe
+-------------------------------
+
+Log Entry : 1:59:53 14 พฤษภาคม 2564
+  :
+  :PORT NAME: COM5
+-------------------------------
+
+Log Entry : 1:59:53 14 พฤษภาคม 2564
+  :
+  :BAUD RATE: 4800
+-------------------------------
+
+Log Entry : 1:59:53 14 พฤษภาคม 2564
+  :
+  :DATA BIT: 8
+-------------------------------
+
+Log Entry : 1:59:53 14 พฤษภาคม 2564
+  :
+  :PARITY: None
+-------------------------------
+
+Log Entry : 1:59:53 14 พฤษภาคม 2564
+  :
+  :STOP_BIT: One
+-------------------------------
+
+Log Entry : 1:59:53 14 พฤษภาคม 2564
+  :
+  :Service Running....
+-------------------------------
+
+Log Entry : 2:00:26 14 พฤษภาคม 2564
+  :
+  :Startup Path : C:\Users\Surajit\Source\Repos\EnvisionTrigger\EnvisionTrigger\bin\Debug\EnvisionTrigger.exe
+-------------------------------
+
+Log Entry : 2:03:44 14 พฤษภาคม 2564
+  :
+  :Startup Path : C:\Users\Surajit\Source\Repos\EnvisionTrigger\EnvisionTrigger\bin\Debug\EnvisionTrigger.exe
+-------------------------------

@@ -1,0 +1,21 @@
+--Dashboard Data structure
+Backend
+--DashboardChartControllet
+--DashboardChartRepository
+--Type of chart like Line, Pi, Bar etc
+SELECT * FROM "GBL_CHART" gc 
+
+-- Chart name 
+SELECT * FROM "GBL_CHARTDTL" gc2 
+
+--Chart maping user-wise  & Role-Wise
+SELECT * FROM "GBL_CHARTSUBSCRIPTION" gc3 
+
+--User wise chart position set on dashboard
+SELECT * FROM "GBL_CHARTUSERSETTING" gc4 
+
+--Role
+SELECT * FROM "GBL_ROLE" gr 
+
+--Role mapping with user
+SELECT * FROM "GBL_GRANTROLE" gg 

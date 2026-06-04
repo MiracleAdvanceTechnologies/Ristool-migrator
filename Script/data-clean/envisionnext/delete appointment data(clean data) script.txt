@@ -1,0 +1,26 @@
+
+
+ 
+select * from  "PMR_SCHEDULE" where "SCHEDULE_DT"<'2023-03-07 00:00:00' order by "SCHEDULE_ID" DESC
+
+select * from "PMR_SCHEDULEDTL" where "SCHEDULE_ID" in (select "SCHEDULE_ID" from  "PMR_SCHEDULE" where "SCHEDULE_DT"<'2023-03-07 00:00:00') order by "SCHEDULEDTL_ID" desc
+
+
+select * from "PMR_ORDER" where "SCHEDULE_ID" in (select "SCHEDULE_ID" from  "PMR_SCHEDULE" where "SCHEDULE_DT"<'2023-03-07 00:00:00') order by "ORDER_ID" DESC
+
+select * from "PMR_ORDERDTL" where "ORDER_ID" in (select "ORDER_ID" from "PMR_ORDER" where "SCHEDULE_ID" in (select "SCHEDULE_ID" from  "PMR_SCHEDULE" where "SCHEDULE_DT"<'2023-03-07 00:00:00') order by "ORDER_ID" desc) order by "ORDERDTL_ID" DESC
+
+
+--------------------------------  Delete ---------------------------------------------
+delete from "PMR_ORDERDTL" where "ORDER_ID" in (select "ORDER_ID" from "PMR_ORDER" where "SCHEDULE_ID" in (select "SCHEDULE_ID" from  "PMR_SCHEDULE" where "SCHEDULE_DT"<'2023-03-07 00:00:00') order by "ORDER_ID" desc)
+
+delete from "PMR_ORDER" where "SCHEDULE_ID" in (select "SCHEDULE_ID" from  "PMR_SCHEDULE" where "SCHEDULE_DT"<'2023-03-07 00:00:00') 
+
+delete from "PMR_SCHEDULEDTL" where "SCHEDULE_ID" in (select "SCHEDULE_ID" from  "PMR_SCHEDULE" where "SCHEDULE_DT"<'2023-03-07 00:00:00') 
+
+delete from  "PMR_SCHEDULE" where "SCHEDULE_DT"<'2023-03-07 00:00:00'
+
+
+
+
+
