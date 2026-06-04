@@ -500,7 +500,7 @@ while (true)
         {
             Console.WriteLine("\n→ RIS_EXAMRESULT...\n");
             var list = db.GetDataFromExamResult(ORG_ID);
-            if (list.Count == 0) { Console.WriteLine("Not found data"); continue; }
+            if (list.Count == 0) { Console.WriteLine("Not found data or Colunm is already convert"); continue; }
             Console.WriteLine($"Found {list.Count} records\n");
             ProcessData(list, db.UpdateExamResult, delayPerRecordMs, batchSize, batchDelayMs);
         }
@@ -508,7 +508,7 @@ while (true)
         {
             Console.WriteLine("\n→ RIS_EXAMRESULTNOTE...\n");
             var list = db.GetDataFromExamResultNote(ORG_ID);
-            if (list.Count == 0) { Console.WriteLine("Not found data"); continue; }
+            if (list.Count == 0) { Console.WriteLine("Not found data or Colunm is already convert"); continue; }
             Console.WriteLine($"Found {list.Count} records\n");
             ProcessData2(list, db.UpdateExamResultNote, delayPerRecordMs, batchSize, batchDelayMs);
         }
@@ -516,7 +516,7 @@ while (true)
         {
             Console.WriteLine("\n→ RIS_EXAMRESULTTEMPLATE...\n");
             var list = db.GetDataFromExamResultTemplate(ORG_ID);
-            if (list.Count == 0) { Console.WriteLine("Not found data"); continue; }
+            if (list.Count == 0) { Console.WriteLine("Not found data or Colunm is already convert"); continue; }
             Console.WriteLine($"Found {list.Count} records\n");
             ProcessData(list, db.UpdateExamResultTemplate, delayPerRecordMs, batchSize, batchDelayMs);
         }
